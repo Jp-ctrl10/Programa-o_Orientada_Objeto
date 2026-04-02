@@ -1,28 +1,37 @@
-// Classe para testar os metodos de encapsulamento 
-// de outras classes
 public class MainEncapsulamento {
 
     public static void main(String[] args){
 
-        //a. Teste conta bancária (Private + validação)
         System.out.println("------TESTANDO ENCAPSULAMENTO------");
-        //Exercicio 1* Teste Conta Bancaria
-        System.out.println("Exercicio 1: Conta Bancaria");
-        //Criando um novo objeto a partir da classe ContaBancaria
-        ContaBancaria minhaConta = new ContaBancaria("Hélter brandão");
-        //verificando o saldo atual
-        System.out.println("O saldo atual e...R$ " + minhaConta.getSaldo());
+
+        // EXERCÍCIO 1 - CONTA BANCÁRIA
         
-        //Deposito um valor invalido, vai devolver um erro
+        System.out.println("Exercicio 1: Conta Bancaria");
+
+        ContaBancaria minhaConta = new ContaBancaria("Helter Brandao");
+
+        System.out.println("O saldo atual ee: R$ " + minhaConta.getSaldo());
+
+        // Depósito inválido
         minhaConta.depositar(-50.00);
-        //tentendo acessar diretamente a propriedade minhaConta.saldo
-        //não será possível, porque ela possui visibilidade PRIVATE
 
-        //depositando um valor no saldo da conta
+        // Depósito válido
         minhaConta.depositar(153.50);
-        System.out.println("O saldo apos deposito e ...R$"
-                 + minhaConta.getSaldo());
 
+        System.out.println("O saldo apos deposito ee: R$ "
+                + minhaConta.getSaldo());
+
+        // =========================
+        // EXERCÍCIO 2 - PRODUTO
+        // =========================
+        System.out.println("Exercicio 2: Produto");
+
+        Produto produto = new Produto("Teclado", 100.50);
+
+        System.out.println("Produto: " + produto.getNomeProduto());
+        System.out.println("Preco: R$ " + produto.getPrecoProduto());
+
+        // Testando preço inválido
+        produto.setPreco(-20);
     }
-
 }
